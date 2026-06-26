@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#5b6ef5" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Spell Bee" />
+  <link rel="apple-touch-icon" href="icons/icon-180.png" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Spelling Bee Trainer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- HOME SCREEN -->
+    <section id="home" class="screen active">
+      <div class="bee">🐝</div>
+      <h1>Spelling Bee</h1>
+      <p class="tagline">Listen, spell, and shine!</p>
+
+      <label class="field-label" for="levelSelect">Pick a level</label>
+      <select id="levelSelect" class="level-select"></select>
+
+      <div class="mode-grid">
+        <button class="mode-btn" data-mode="practice">
+          <span class="mode-emoji">📝</span>
+          <span class="mode-name">Practice</span>
+          <span class="mode-desc">See the word &amp; learn</span>
+        </button>
+        <button class="mode-btn" data-mode="test">
+          <span class="mode-emoji">🎧</span>
+          <span class="mode-name">Spelling Test</span>
+          <span class="mode-desc">Listen &amp; spell it</span>
+        </button>
+      </div>
+
+      <button id="reviewBtn" class="review-btn" data-mode="review">
+        🔁 Review my tricky words <span id="reviewCount" class="review-count">0</span>
+      </button>
+
+      <button id="reportBtn" class="report-link">📊 Daily Report</button>
+
+      <div class="home-stats">
+        <span>🏆 Best streak: <b id="bestStreak">0</b></span>
+      </div>
+    </section>
+
+    <!-- DAILY REPORT SCREEN -->
+    <section id="report" class="screen">
+      <header class="quiz-header">
+        <button id="reportHomeBtn" class="icon-btn" title="Home">🏠</button>
+        <h2 class="report-title">📊 Daily Report</h2>
+        <button id="printBtn" class="icon-btn" title="Print / Save">🖨️</button>
+      </header>
+
+      <div class="card report-card">
+        <h3 id="reportDate" class="report-date"></h3>
+        <div id="todayStats" class="today-stats"></div>
+
+        <h3 class="report-h">📌 Words still to practice</h3>
+        <div id="toPracticeList" class="practice-words-list"></div>
+
+        <h3 class="report-h">📅 Last 7 days</h3>
+        <div id="historyList" class="history-list"></div>
+
+        <button id="clearStatsBtn" class="mini-btn danger">Clear all progress</button>
+      </div>
+    </section>
+
+    <!-- QUIZ SCREEN -->
+    <section id="quiz" class="screen">
+      <header class="quiz-header">
+        <button id="homeBtn" class="icon-btn" title="Home">🏠</button>
+        <div class="progress">
+          <span id="progressText">1 / 10</span>
+          <div class="progress-bar"><div id="progressFill"></div></div>
+        </div>
+        <div class="score-pill">⭐ <b id="score">0</b></div>
+      </header>
+
+      <div class="card">
+        <div id="practiceWord" class="practice-word"></div>
+
+        <div class="speak-row">
+          <button id="speakBtn" class="speak-btn">🔊 Say the word</button>
+          <button id="slowBtn" class="mini-btn" title="Say it slowly">🐢 Slow</button>
+        </div>
+
+        <div class="helper-row">
+          <button id="sentenceBtn" class="mini-btn">💬 In a sentence</button>
+          <button id="defineBtn" class="mini-btn">📖 What it means</button>
+        </div>
+        <div id="hintBox" class="hint-box"></div>
+
+        <form id="answerForm" autocomplete="off">
+          <input id="answerInput" class="answer-input" type="text"
+                 inputmode="text" autocapitalize="none" autocorrect="off"
+                 spellcheck="false" placeholder="Type the spelling..." />
+          <button id="checkBtn" type="submit" class="check-btn">Check ✓</button>
+        </form>
+
+        <div id="feedback" class="feedback"></div>
+        <button id="nextBtn" class="next-btn hidden">Next word →</button>
+      </div>
+    </section>
+
+    <!-- RESULTS SCREEN -->
+    <section id="results" class="screen">
+      <div class="bee">🎉</div>
+      <h1>Great job!</h1>
+      <p id="resultSummary" class="result-summary"></p>
+      <div id="missedList" class="missed-list"></div>
+      <button id="againBtn" class="check-btn wide">Play again ↻</button>
+      <button id="resultsHomeBtn" class="next-btn">Back home</button>
+    </section>
+
+  </div>
+
+  <script src="words.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
