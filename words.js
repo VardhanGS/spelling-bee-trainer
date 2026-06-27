@@ -145,7 +145,7 @@ const WORD_LEVELS = {
     { w: "rhythm", s: "Clap to the rhythm of the song.", d: "A pattern of beats in music." }
   ],
 
-  "🐝 Scripps One Bee — Official List (125 words)": [
+  "__ONE_BEE_MASTER__": [
     { w: "punting", s: "The player practiced punting the football down the field.", d: "Kicking a football that you drop from your hands." },
     { w: "crowd", s: "A big crowd cheered at the game.", d: "A large group of people in one place." },
     { w: "secret", s: "I will keep your secret safe.", d: "Something you keep hidden and do not tell." },
@@ -273,3 +273,21 @@ const WORD_LEVELS = {
     { w: "stray", s: "A stray cat showed up at our door.", d: "A lost pet; or to wander off." }
   ]
 };
+
+// Split the official Scripps One Bee study list into an easier tier and a harder
+// tier so he can ramp up gradually. Both tiers together = the full 125-word list.
+(function () {
+  const master = WORD_LEVELS["__ONE_BEE_MASTER__"];
+  delete WORD_LEVELS["__ONE_BEE_MASTER__"];
+  const easier = new Set([
+    "crowd", "secret", "pond", "pardon", "shake", "proof", "town", "bingo", "clever",
+    "inside", "reply", "frozen", "film", "soda", "seal", "admit", "brass", "deny",
+    "jolly", "powder", "ash", "flame", "grits", "cliff", "hem", "brim", "plot", "desk",
+    "bobcat", "polo", "roller", "drum", "petal", "mouth", "cone", "never", "silly",
+    "grub", "hook", "number", "cooking", "collect", "local", "proper", "mix", "sound",
+    "still", "smiled", "peach", "pie", "size", "hall", "chain", "chicken", "finish",
+    "cheer", "chips", "scoop", "beam", "crew", "crate", "hotel", "stray"
+  ]);
+  WORD_LEVELS["🐝 One Bee — Easier Start"] = master.filter((o) => easier.has(o.w));
+  WORD_LEVELS["🐝 One Bee — Harder Half"] = master.filter((o) => !easier.has(o.w));
+})();
