@@ -134,6 +134,55 @@ h1 {
 
 .mini-btn.danger { margin-top: 16px; background: #ffe1e4; color: var(--bad); box-shadow: 0 4px 0 #ffc4ca; }
 
+/* PROFILE CHIP (home) */
+.profile-chip {
+  align-self: center;
+  font: inherit; font-size: 1.05rem; font-weight: bold;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; margin-bottom: 6px;
+  border: none; border-radius: 22px;
+  background: #ffffff; color: var(--ink);
+  box-shadow: 0 5px 0 rgba(0,0,0,0.15); cursor: pointer;
+}
+.profile-chip:active { transform: translateY(3px); box-shadow: 0 2px 0 rgba(0,0,0,0.15); }
+.profile-chip #chipAvatar { font-size: 1.3rem; }
+.chip-caret { color: var(--muted); }
+.header-spacer { width: 46px; }
+
+/* PROFILES SCREEN */
+.profile-list { display: flex; flex-direction: column; gap: 10px; }
+.profile-card {
+  display: flex; align-items: stretch; gap: 8px;
+  border-radius: 18px; background: var(--soft); padding: 6px;
+  border: 3px solid transparent;
+}
+.profile-card.active { border-color: var(--accent); background: #eef1ff; }
+.profile-pick {
+  flex: 1; font: inherit; display: flex; align-items: center; gap: 12px;
+  background: none; border: none; cursor: pointer; padding: 8px 6px; text-align: left; color: var(--ink);
+}
+.pc-avatar { font-size: 2rem; }
+.pc-name { font-size: 1.25rem; font-weight: bold; flex: 1; }
+.pc-streak { font-size: .95rem; color: var(--muted); }
+.pc-badge { font-size: .7rem; font-weight: bold; color: #fff; background: var(--accent); padding: 3px 8px; border-radius: 10px; }
+.pc-actions { display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+.pc-edit, .pc-del {
+  font: inherit; font-size: 1.05rem; border: none; cursor: pointer;
+  width: 40px; height: 34px; border-radius: 12px; background: #fff; box-shadow: 0 3px 0 #d6dafc;
+}
+.pc-del { background: #ffe1e4; box-shadow: 0 3px 0 #ffc4ca; }
+.pc-edit:active, .pc-del:active { transform: translateY(2px); box-shadow: none; }
+
+.add-profile { margin-top: 18px; }
+.avatar-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.avatar-opt {
+  font-size: 1.5rem; width: 46px; height: 46px; border-radius: 14px;
+  border: 3px solid transparent; background: var(--soft); cursor: pointer; line-height: 1;
+}
+.avatar-opt.sel { border-color: var(--accent); background: #eef1ff; }
+.add-row { display: flex; gap: 10px; }
+.add-row .answer-input { min-width: 0; font-size: 1.2rem; }
+
 @media print {
   body { background: #fff; }
   .quiz-header .icon-btn, #clearStatsBtn { display: none; }

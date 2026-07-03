@@ -17,6 +17,9 @@
 
     <!-- HOME SCREEN -->
     <section id="home" class="screen active">
+      <button id="profileChip" class="profile-chip">
+        <span id="chipAvatar">🐝</span> <span id="chipName">Player 1</span> <span class="chip-caret">▾</span>
+      </button>
       <div class="bee">🐝</div>
       <h1>Spelling Bee</h1>
       <p class="tagline">Listen, spell, and shine!</p>
@@ -52,7 +55,7 @@
     <section id="report" class="screen">
       <header class="quiz-header">
         <button id="reportHomeBtn" class="icon-btn" title="Home">🏠</button>
-        <h2 class="report-title">📊 Daily Report</h2>
+        <h2 class="report-title" id="reportTitle">📊 Daily Report</h2>
         <button id="printBtn" class="icon-btn" title="Print / Save">🖨️</button>
       </header>
 
@@ -115,6 +118,30 @@
       <div id="missedList" class="missed-list"></div>
       <button id="againBtn" class="check-btn wide">Play again ↻</button>
       <button id="resultsHomeBtn" class="next-btn">Back home</button>
+    </section>
+
+    <!-- PROFILES SCREEN -->
+    <section id="profiles" class="screen">
+      <header class="quiz-header">
+        <button id="profilesHomeBtn" class="icon-btn" title="Home">🏠</button>
+        <h2 class="report-title">👥 Players</h2>
+        <span class="header-spacer"></span>
+      </header>
+
+      <div class="card">
+        <div id="profileList" class="profile-list"></div>
+
+        <div class="add-profile">
+          <h3 class="report-h">➕ Add a player</h3>
+          <div class="avatar-row" id="avatarRow"></div>
+          <div class="add-row">
+            <input id="newProfileName" class="answer-input" type="text"
+                   autocomplete="off" autocapitalize="words" maxlength="16"
+                   placeholder="New player name..." />
+            <button id="addProfileBtn" class="check-btn">Add ＋</button>
+          </div>
+        </div>
+      </div>
     </section>
 
   </div>
